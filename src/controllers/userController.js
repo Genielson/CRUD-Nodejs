@@ -1,4 +1,4 @@
-
+const userModel = require("../models/UserModel");
 
 exports.index = function(req,send){
     
@@ -7,8 +7,12 @@ exports.index = function(req,send){
 }
 
 
-exports.create = function(req,send){
-    
-    
-
+exports.create = async function(req,send){
+    const user = new userModel(req.body.email,req.body.password);
+    try{
+        const response = await user.create();
+        send.redirect("/");
+    }catch(error){
+        console.log("OPA,DEU UM ERRO ");
+    }
 }

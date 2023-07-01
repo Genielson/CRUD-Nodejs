@@ -1,12 +1,10 @@
 
 const mongoose = require("mongoose");
 
-
 let user = new mongoose.Schema({
    email:String,
    password:String
 });
-
 const userModel = mongoose.model("User",user);
 
 class User {
@@ -22,9 +20,7 @@ class User {
         const user = await userModel.create(this);
         return user;
     }
-
 }
-
 
 module.exports = User
 
