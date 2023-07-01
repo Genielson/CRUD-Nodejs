@@ -9,6 +9,6 @@ exports.index = function(req,send){
 
 exports.create = function(req,send){
     
-    send.render("index")
+    
 
 }
