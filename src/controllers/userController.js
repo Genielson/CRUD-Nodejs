@@ -1,7 +1,14 @@
 
 
+exports.index = function(req,send){
+    
+    send.render("index")
+
+}
+
+
 exports.create = function(req,send){
     
-    console.log("Teste");
+    send.render("index")
 
 }
