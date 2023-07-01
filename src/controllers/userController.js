@@ -1,9 +1,7 @@
 const userModel = require("../models/UserModel");
 
 exports.index = function(req,send){
-    
     send.render("index")
-
 }
 
 
@@ -15,4 +13,9 @@ exports.create = async function(req,send){
     }catch(error){
         console.log("OPA,DEU UM ERRO ");
     }
+}
+
+
+exports.show = function(req,send){
+    
 }

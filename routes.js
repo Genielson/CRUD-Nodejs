@@ -7,5 +7,6 @@ const userController = require("./src/controllers/userController");
 route.get('/', homeController.paginaInicial);
 route.get('/user/create', userController.index );
 route.post('/user/create', userController.create);
+route.get('/users', userController.show);
 
 module.exports = route;

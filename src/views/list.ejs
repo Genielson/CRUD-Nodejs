@@ -1,0 +1,9 @@
+<%- include("includes/head") %> 
+
+<ul class="list-group"></ul>
+<% users.array.forEach(user => {  %>
+    <li class="list-group-item"><%= user.email %></li>
+<% }); %> 
+</ul>
+
+<%- include("includes/footer") %>
