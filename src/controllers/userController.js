@@ -1,4 +1,5 @@
 const userModel = require("../models/UserModel");
+const validator = require("validator");
 
 exports.index = function(req,send){
     send.render("index")
@@ -9,7 +10,21 @@ exports.create = async function(req,send){
     const user = new userModel(req.body.email,req.body.senha);
     try{
         const response = await user.create();
-        send.redirect("/");
+        console.log("VALOR DO RESPONSE : "+response);
+        if(response == ""){
+            console.log("ENTROU NO IF");
+             req.flash("errors"," Algum campo não foi preenchido! ");
+             req.session.save(() => send.redirect('/user/create'));
+             return;
+        }
+
+
+        console.log("  ENTROU NO OUTRO IF ");
+        req.flash("success"," Dados salvo com sucesso! ");
+        req.session.save(() => send.redirect('/user/create'));
+        return;
+
+
     }catch(error){
         console.log(error);
     }
@@ -20,6 +35,7 @@ exports.update = async function(req,send){
     const user = new userModel(req.body.email,req.body.senha);
     try{
         const response = await user.update();
+
         send.redirect("/");
     }catch(error){
         console.log(error);

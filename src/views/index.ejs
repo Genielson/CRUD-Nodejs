@@ -1,6 +1,38 @@
 <%- include("includes/head") %>
 
 
+<% if(typeof errors !== 'undefined' && errors.length > 0){  %>
+
+  <div class="row">
+    <div class="col my-3">
+      <div class="alert alert-danger">
+        <% errors.forEach(erro => { %>
+        <%= erro %><br>
+        <% }); %>
+      </div>
+    </div>
+  </div>
+
+
+<% } %>  
+
+
+<% if(typeof success !== 'undefined' && success.length > 0){  %>
+
+  <div class="row">
+    <div class="col my-3">
+      <div class="alert alert-success">
+        <% success.forEach(x => { %>
+        <%= x %><br>
+        <% }); %>
+      </div>
+    </div>
+  </div>
+
+
+<% } %>  
+
+
 <form method="POST" action="/user/create">
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>

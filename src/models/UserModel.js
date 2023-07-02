@@ -31,13 +31,11 @@ class User {
     }
 
     async searchUser(id){
-        
         const user = await userModel.findById(id);
         return user;
     }
 
     async update(id){
-        
         const user = await userModel.findByIdAndUpdate(this,id);
         return user;
     }

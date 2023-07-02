@@ -15,7 +15,7 @@ const routes = require('./routes');
 const path = require('path');
 const helmet = require('helmet');
 
-const {myMiddlewareSession} = require("./src/middlewares/middleware");
+const {middlewareGlobal} = require("./src/middlewares/middleware");
 
 
 app.use(helmet());
@@ -27,7 +27,7 @@ app.use(express.static(path.resolve(__dirname, 'public')));
 const sessionOptions = session({
   secret: 'akasdfj0út23453456+54qt23qv  qwf qwer qwer qewr asdasdasda a6()',
   store: MongoStore.create({ mongoUrl: process.env.MINHA_STRING }),
-  resave: false,
+  resave: true,
   saveUninitialized: false,
   cookie: {
     maxAge: 1000 * 60 * 60 * 24 * 7,
@@ -39,7 +39,7 @@ app.use(flash());
 
 app.set('views', path.resolve(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
-app.use(myMiddlewareSession)
+app.use(middlewareGlobal)
 
 
 app.use(routes);
