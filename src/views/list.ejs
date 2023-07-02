@@ -2,8 +2,9 @@
 
 <ul class="list-group"></ul>
     <% list.forEach(user => {  %>
-        <li class="list-group-item"><%= user.email %> 
+        <li class="list-group-item mt-4"><%= user.email %> 
             <a class="btn btn-danger" href="/user/delete/<%=  user._id %>"> Deletar </a>
+            <a class="btn btn-primary" href="/user/edit/<%=  user._id %>"> Editar </a>
         </li>
     <% }); %> 
 </ul>
