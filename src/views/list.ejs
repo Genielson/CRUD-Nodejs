@@ -1,9 +1,11 @@
 <%- include("includes/head") %> 
 
 <ul class="list-group"></ul>
-<% users.array.forEach(user => {  %>
-    <li class="list-group-item"><%= user.email %></li>
-<% }); %> 
+    <% list.forEach(user => {  %>
+        <li class="list-group-item"><%= user.email %> 
+            <a class="btn btn-danger" href="/user/delete/<%=  user._id %>"> Deletar </a>
+        </li>
+    <% }); %> 
 </ul>
 
 <%- include("includes/footer") %>

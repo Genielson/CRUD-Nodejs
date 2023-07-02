@@ -1,6 +1,7 @@
 const userModel = require("../models/UserModel");
 
 exports.index = function(req,send){
+   
     send.render("index")
 }
 
@@ -16,6 +17,8 @@ exports.create = async function(req,send){
 }
 
 
-exports.show = function(req,send){
-    
+exports.show = async function(req,send){
+    const users = new userModel();
+    const list = await users.list();
+    send.render("list",{list});
 }

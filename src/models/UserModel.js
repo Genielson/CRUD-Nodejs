@@ -20,6 +20,12 @@ class User {
         const user = await userModel.create(this);
         return user;
     }
+
+
+    async list(){
+        const users = await userModel.find();
+        return users;
+    }
 }
 
 module.exports = User
