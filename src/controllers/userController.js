@@ -16,6 +16,10 @@ exports.create = async function(req,send){
     }
 }
 
+exports.edit = function(req,send){
+    send.render("edit");
+}
+
 
 exports.show = async function(req,send){
     const users = new userModel();
