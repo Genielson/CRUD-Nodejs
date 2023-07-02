@@ -1,5 +1,6 @@
 
 const mongoose = require("mongoose");
+const validator = require("validator");
 
 let user = new mongoose.Schema({
    email:String,
@@ -16,7 +17,9 @@ class User {
     }
 
     async create(){
-        if(this.email == NULL || this.password == NULL) return "";
+        console.log("VALOR EMAIL : "+this.email);
+        console.log("VALOR SENHA : "+this.password);
+        if(validator.isEmpty(this.email) || validator.isEmpty(this.password)) return "";
         const user = await userModel.create(this);
         return user;
     }
