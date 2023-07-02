@@ -36,6 +36,12 @@ class User {
         return user;
     }
 
+    async update(id){
+        
+        const user = await userModel.findByIdAndUpdate(this,id);
+        return user;
+    }
+
 
 }
 
