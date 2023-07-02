@@ -29,6 +29,13 @@ class User {
         const users = await userModel.find();
         return users;
     }
+
+    async searchUser(id){
+        const user = await userModel.findById(id);
+        return user;
+    }
+
+
 }
 
 module.exports = User
